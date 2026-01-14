@@ -1,0 +1,997 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ProSimSDK</name>
+    </assembly>
+    <members>
+        <member name="T:ProSimSDK.AiTrafficObject">
+            <summary>
+            This class contains data for AI aircraft.
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.AiTrafficObject.ObjectId">
+            <summary>
+            A unique ID of the object
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.AiTrafficObject.ObjectType">
+            <summary>
+            Type of traffic object ("Airplane", "Animal", "Avatar", "Boat", "ControlTower", "Countermeasure", "ExternalSim", "GroundVehicle", "Helicopter", "SimpleObject", "Submersible", "Viewer" or "Weapon")
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.AiTrafficObject.AircraftType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.AiTrafficObject.AircraftModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.AiTrafficObject.AircraftId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.AiTrafficObject.AircraftAirline">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.AiTrafficObject.AircraftFlightNumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.AiTrafficObject.AircraftTitle">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.AiTrafficObject.PlannedStartAirport">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.AiTrafficObject.PlannedEndAirport">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.AiTrafficObject.EngineType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.AiTrafficObject.EngineCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.AiTrafficObject.Latitude">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.AiTrafficObject.Longitude">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.AiTrafficObject.Altitude">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.AiTrafficObject.AltitudeIndicated">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.AiTrafficObject.GroundSpeed">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.AiTrafficObject.HeadingTrue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.AiTrafficObject.OnGround">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.AiTrafficObject.VerticalSpeed">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.AiTrafficObject.VelocityWorldX">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.AiTrafficObject.VelocityWorldY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.AiTrafficObject.VelocityWorldZ">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ProSimSDK.ArmedFailure">
+            <summary>Represents a list of failures that is armed or active.</summary>
+            <seealso cref="T:ProSimSDK.FailureCondition"></seealso>
+        </member>
+        <member name="E:ProSimSDK.ArmedFailure.onRemove">
+            <summary>
+            Event that is triggered when this ArmedFailure is about to be removed.
+            </summary>
+        </member>
+        <member name="E:ProSimSDK.ArmedFailure.onTrigger">
+            <summary>
+            Event that will be fired when this ArmedFailure is triggered.
+            </summary>
+        </member>
+        <member name="E:ProSimSDK.ArmedFailure.onNew">
+            <summary>
+            Event that will be triggered when a new ArmedFailure is received.
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.ArmedFailure.isAlive">
+            <summary>
+            True when this object is active within ProSim737 system.
+            </summary>
+        </member>
+        <member name="F:ProSimSDK.ArmedFailure.failures">
+            <summary>
+            The list of failures
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.ArmedFailure.condition">
+            <summary>
+            The trigger condition for this set of failures
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.ArmedFailure.isActive">
+            <summary>
+            True if these failures are active
+            </summary>
+        </member>
+        <member name="M:ProSimSDK.ArmedFailure.Create(ProSimSDK.FailureCondition,ProSimSDK.Failure[])">
+            <summary>Create a new set of failures that activate on a given condition.</summary>
+            <param name="condition">An optional FailureCondition object that determines when the failures should be triggerd. If null, the failures will be triggered immediately.</param>
+            <param name="failures">The list of failures.</param>
+        </member>
+        <member name="M:ProSimSDK.ArmedFailure.Create(ProSimSDK.FailureCondition,ProSimSDK.Failure)">
+            <summary>Create a new failure that activates on a given condition.</summary>
+            <param name="condition">An optional FailureCondition object that determines when the failures should be triggerd. If null, the failures will be triggered immediately.</param>
+            <param name="failures">A single failure.</param>
+        </member>
+        <member name="M:ProSimSDK.ArmedFailure.Create(ProSimSDK.Failure[])">
+            <summary>Activate a set of failures immediately.</summary>
+            <param name="failures">The list of failures.</param>
+        </member>
+        <member name="M:ProSimSDK.ArmedFailure.Create(ProSimSDK.Failure)">
+            <summary>Active a failure immediately.</summary>
+            <param name="failures">A single failure.</param>
+        </member>
+        <member name="M:ProSimSDK.ArmedFailure.Reset">
+            <summary>Resets and remove this ArmedFailure.</summary>
+            <remarks>After this call, the ArmedFailure object is invalid and should nolonger be used.</remarks>
+        </member>
+        <member name="T:ProSimSDK.ArmedFailureData">
+            <exclude/>
+        </member>
+        <member name="T:ProSimSDK.ArmedFailureEventDelegate">
+            <summary>A delegate that is used to communicate changes related to ArmedFailure objects.</summary>
+        </member>
+        <member name="T:ProSimSDK.CameraPov">
+            <summary>
+            This class contains data for a camera position.
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.CameraPov.X">
+            <summary>
+            Camera X position.
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.CameraPov.Y">
+            <summary>
+            Camera X position.
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.CameraPov.Z">
+            <summary>
+            Camera X position.
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.CameraPov.Pitch">
+            <summary>
+            Camera pitch axis.
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.CameraPov.Roll">
+            <summary>
+            Camera roll axis.
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.CameraPov.Yaw">
+            <summary>
+            Camera yaw axis.
+            </summary>
+        </member>
+        <member name="T:ProSimSDK.DatabaseBuilderAction">
+            <summary>
+            Contains the current main database builder action.
+            </summary>
+        </member>
+        <member name="T:ProSimSDK.DataRefStateEnum">
+            <summary>
+            	<para>Contains all states that a DataRef can be in.</para>
+            </summary>
+        </member>
+        <member name="F:ProSimSDK.DataRefStateEnum.Initializing">
+            <summary>The DataRef has not yet been verified.</summary>
+        </member>
+        <member name="F:ProSimSDK.DataRefStateEnum.Error">
+            <summary>The DataRef could not be validated by the server.</summary>
+        </member>
+        <member name="F:ProSimSDK.DataRefStateEnum.Valid">
+            <summary>The DataRef is valid.</summary>
+        </member>
+        <member name="T:ProSimSDK.DataRef">
+            <summary>The DataRef Class defines a link to a ProSim737 System variable that can be used to read and write this variable.</summary>
+        </member>
+        <member name="P:ProSimSDK.DataRef.value">
+            <summary>The current value of the DataRef.</summary>
+            <remarks>The actual type of the object differs per variable.</remarks>
+        </member>
+        <member name="F:ProSimSDK.DataRef.connection">
+            <summary>The connection that is hosting this DataRef.</summary>
+        </member>
+        <member name="P:ProSimSDK.DataRef.DataRefState">
+            <summary>
+            The current state of the DataRef.
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.DataRef.name">
+            <summary>The name of the DataRef.</summary>
+        </member>
+        <member name="P:ProSimSDK.DataRef.interval">
+            <summary>The minimum interval in milliseconds that this DataRef is polled at.</summary>
+        </member>
+        <member name="M:ProSimSDK.DataRef.#ctor(System.String,ProSimSDK.ProSimConnect)">
+            <summary>Registers a new DataRef with the given name to the given connection with a 1000 msec polling interval.</summary>
+            <param name="name">The name of the Data Ref</param>
+            <param name="connection">The ProSimConnect connection</param>
+        </member>
+        <member name="M:ProSimSDK.DataRef.#ctor(System.String,System.Int32,ProSimSDK.ProSimConnect,System.Boolean)">
+            <summary>Registers a new DataRef with the given name  to the given connection. ProSim737 System will poll the DataRef at the given interval.</summary>
+            <param name="name">The name of the Data Ref</param>
+            <param name="interval">The polling interval in msec</param>
+            <param name="connection">The ProSimConnect connection</param>
+        </member>
+        <member name="M:ProSimSDK.DataRef.Dispose">
+            <summary>
+            Unregister the DataRef from the connection.
+            </summary>
+        </member>
+        <member name="E:ProSimSDK.DataRef.onDataChange">
+            <summary>Event raised when the data this DataRef points to was changed.</summary>
+        </member>
+        <member name="M:ProSimSDK.DataRef`1.#ctor(System.String,System.Int32,ProSimSDK.ProSimConnect)">
+            <param name="name">The name of the Data Ref.</param>
+            <param name="interval">The polling interval in milliseconds.</param>
+            <param name="connection">The ProSimConnect connection.</param>
+        </member>
+        <member name="P:ProSimSDK.DataRef`1.value">
+            <summary>
+            Access the current value of this DataRef.
+            </summary>
+            <exception cref="T:ProSimSDK.DataRefNotReady"></exception>
+            <exception cref="T:ProSimSDK.InvalidData"></exception>
+        </member>
+        <member name="T:ProSimSDK.DataRefDescription">
+            <summary>
+            This class contains information about a DataRef.
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.DataRefDescription.Name">
+            <summary>
+            The full name of the DataRef.
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.DataRefDescription.Description">
+            <summary>
+            The description of the DataRef.
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.DataRefDescription.CanRead">
+            <summary>
+            True if this DataRef can be read from.
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.DataRefDescription.CanWrite">
+            <summary>
+            True if this DataRef can be written to.
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.DataRefDescription.DataType">
+            <summary>
+            The data type of the DataRef.
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.DataRefDescription.DataUnit">
+            <summary>
+            The data unit of the DataRef.
+            </summary>
+        </member>
+        <member name="T:ProSimSDK.ProSimException">
+            <summary>
+            The base of all ProSim737 exceptions.
+            </summary>
+        </member>
+        <member name="T:ProSimSDK.NotConnectedException">
+            <summary>
+            An operation was requested that needs a connection, but the ProSimConnect instance is not connected.
+            </summary>
+        </member>
+        <member name="T:ProSimSDK.DataRefNotFoundException">
+            <summary>
+            The indicated DataRef is unknown.
+            </summary>
+        </member>
+        <member name="T:ProSimSDK.DataRefNotReady">
+            <summary>
+            The indicated DataRef is not in the Valid state.
+            </summary>
+        </member>
+        <member name="T:ProSimSDK.InvalidData">
+            <summary>
+            The data written to the DataRef is not compatible with the DataRef.
+            </summary>
+        </member>
+        <member name="T:ProSimSDK.VersionMismatchException">
+            <summary>
+            Operation on version mismatch between client and server.
+            </summary>
+        </member>
+        <member name="T:ProSimSDK.Failure">
+            <summary>
+            	<para>This class contains a non normal situation or event in the simulator.</para>
+            </summary>
+            <seealso cref="T:ProSimSDK.ArmedFailure"></seealso>
+        </member>
+        <member name="P:ProSimSDK.Failure.name">
+            <summary>The name of the failure.</summary>
+        </member>
+        <member name="P:ProSimSDK.Failure.description">
+            <summary>
+            	<para>The description of the failure.</para>
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.Failure.domain">
+            <summary>The domain of the value.</summary>
+            <remarks>Domains can be used for grouping. They are strings like "Electric", "Pneumatic", "Hydraulic", etc.</remarks>
+        </member>
+        <member name="P:ProSimSDK.Failure.groupName">
+            <summary>When the failure is part of a group, this provides the group name.</summary>
+            <example>
+            For "Engine number 1 failure", the groupName would be "Engine failure" and the groupMember would be "Engine 1".
+            </example>
+        </member>
+        <member name="P:ProSimSDK.Failure.groupMember">
+            <summary>When the failure is part of a group, this provides the group member.</summary>
+            <example>
+            For "Engine number 1 failure", the groupName would be "Engine failure" and the groupMember would be "Engine 1".
+            </example>
+        </member>
+        <member name="P:ProSimSDK.Failure.failureClass">
+            <summary>
+            The classification of the failure.
+            </summary>
+        </member>
+        <member name="T:ProSimSDK.FailureCondition">
+            <summary>Contains the condition on which to trigger an ArmedFailure.</summary>
+        </member>
+        <member name="T:ProSimSDK.FailureCondition.ThresholdTypeEnum">
+            <summary>
+            Indicates the threshold type for a condition
+            </summary>
+        </member>
+        <member name="F:ProSimSDK.FailureCondition.ThresholdTypeEnum.Below">
+            <summary>
+            The trigger is active when the value is below this threshold.
+            </summary>
+        </member>
+        <member name="F:ProSimSDK.FailureCondition.ThresholdTypeEnum.Above">
+            <summary>
+            The trigger is active when the value is below this threshold.
+            </summary>
+        </member>
+        <member name="F:ProSimSDK.FailureCondition.altitudeThreshold">
+            <summary>
+            The altitude threshold type
+            </summary>
+        </member>
+        <member name="F:ProSimSDK.FailureCondition.altitude">
+            <summary>The trigger altitude.</summary>
+        </member>
+        <member name="F:ProSimSDK.FailureCondition.speed">
+            <summary>The trigger speed.</summary>
+        </member>
+        <member name="F:ProSimSDK.FailureCondition.time">
+            <summary>The trigger time.</summary>
+        </member>
+        <member name="T:ProSimSDK.FailureCondition.EventTypeEnum">
+            <summary>
+            Indicates an event type after which a failure occurs
+            </summary>
+        </member>
+        <member name="F:ProSimSDK.FailureCondition.EventTypeEnum.v1">
+            <summary>
+            After V1
+            </summary>
+        </member>
+        <member name="F:ProSimSDK.FailureCondition.EventTypeEnum.Takeoff">
+            <summary>
+            After takeoff
+            </summary>
+        </member>
+        <member name="F:ProSimSDK.FailureCondition.EventTypeEnum.Landing">
+            <summary>
+            After landing
+            </summary>
+        </member>
+        <member name="F:ProSimSDK.FailureCondition.afterEvent">
+            <summary>
+            When set, the failure will occur after the indicated time
+            </summary>
+        </member>
+        <member name="F:ProSimSDK.FailureCondition.afterEventTimer">
+            <summary>
+            When non zero, the event occurs delayed after the event set in afterEvent.
+            </summary>
+        </member>
+        <member name="F:ProSimSDK.FailureCondition.seconds">
+            <exclude/>
+        </member>
+        <member name="T:ProSimSDK.FlightData">
+            <summary>
+            This class contains data for saving flights.
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.FlightData.FileName">
+            <summary>
+            File name flight should be saved to.
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.FlightData.Title">
+            <summary>
+            Title of flight.
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.FlightData.Description">
+            <summary>
+            Description of flight.
+            </summary>
+        </member>
+        <member name="T:ProSimSDK.ISDK">
+            <exclude/>
+        </member>
+        <member name="M:ProSimSDK.ISDK.SetActiveSkyWeatherMode(ProSimSDK.Weather.WeatherModeType,System.Nullable{System.DateTime})">
+            <summary>
+            Set ActiveSky weather mode
+            </summary>
+            <param name="weatherMode"></param>
+            <param name="historicDate"></param>
+        </member>
+        <member name="M:ProSimSDK.ISDK.GetActiveSkyNewUniqueId">
+            <summary>
+            Generate unique ID for WeatherEffect
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ProSimSDK.ISDK.DoesActiveSkyIdExistAlready(System.String)">
+            <summary>
+            Check if ID already exist from the resource
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProSimSDK.ISDK.IsActiveSkyAnyWeatherEffectSent">
+            <summary>
+            Inquiry if any WeatherEffect has been sent to ActiveSky
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ProSimSDK.ISDK.AddActiveSkyWeatherEffect(ProSimSDK.Weather.WeatherEffect)">
+            <summary>
+            Add the WeatherEffect to ActiveSky
+            </summary>
+            <param name="weatherEffect"></param>
+        </member>
+        <member name="M:ProSimSDK.ISDK.GetActiveSkyActiveWeatherEffects">
+            <summary>
+            Get active WeatherEffect from ActiveSyke
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ProSimSDK.ISDK.SendActiveSkyWeatherEffect(ProSimSDK.Weather.WeatherEffect)">
+            <summary>
+            Send selected WeatherEffect to ActiveSky
+            </summary>
+            <param name="weatherEffect"></param>
+        </member>
+        <member name="M:ProSimSDK.ISDK.RemoveActiveSkyWeatherEffect(ProSimSDK.Weather.WeatherEffect)">
+            <summary>
+            Remove selected WeatherEffect
+            </summary>
+            <param name="weatherEffect"></param>
+        </member>
+        <member name="M:ProSimSDK.ISDK.StartActiveSkyService">
+            <summary>
+            Start ActiveSky Service
+            </summary>
+        </member>
+        <member name="M:ProSimSDK.ISDK.StopActiveSkyService">
+            <summary>
+            Stop ActiveSky Service
+            </summary>
+        </member>
+        <member name="M:ProSimSDK.ISDK.RestartActiveSkyService">
+            <summary>
+            Restart ActiveSky Service
+            </summary>
+        </member>
+        <member name="M:ProSimSDK.ISDK.IsActiveSkyEnabled">
+            <summary>
+            Check if ActiveSky is Enabled from ProSim
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ProSimSDK.ISDKCallback">
+            <exclude/>
+        </member>
+        <member name="M:ProSimSDK.MainDatabaseInfo.GenerateEmptyMainDatabaseInfo">
+            <summary>
+            Generate empty MainDatabaseInfo instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:ProSimSDK.ProSimConnect.isConnected">
+            <summary>
+            True if this instance is connected to ProSim737.
+            </summary>
+            <seealso cref="E:ProSimSDK.ProSimConnect.onConnect"></seealso>
+            <seealso cref="E:ProSimSDK.ProSimConnect.onDisconnect"></seealso>
+        </member>
+        <member name="P:ProSimSDK.ProSimConnect.sendTimeOut">
+            <summary>
+            Get or set the send timeout value of the binding
+            </summary>
+        </member>
+        <member name="T:ProSimSDK.ProSimConnect.connectionChangedDelegate">
+            <summary>
+            Delegate for connection status change notifications.
+            </summary>
+        </member>
+        <member name="T:ProSimSDK.ProSimConnect.connectionStatusDelegate">
+            <summary>
+            Delegate for connection status include exception.
+            </summary>
+        </member>
+        <member name="T:ProSimSDK.ProSimConnect.weatherReceivedDelegate">
+            <summary>
+            Delegate for weather received notifications.
+            </summary>
+        </member>
+        <member name="T:ProSimSDK.ProSimConnect.aiTrafficAddedDelegate">
+            <summary>
+            Delegate for AI Traffic added notifications.
+            </summary>
+        </member>
+        <member name="T:ProSimSDK.ProSimConnect.aiTrafficRemovedDelegate">
+            <summary>
+            Delegate for AI Traffic removed notifications.
+            </summary>
+        </member>
+        <member name="T:ProSimSDK.ProSimConnect.MainDatabaseBuiltDelegate">
+            <summary>
+            Delegate for Push New Main Database
+            </summary>
+        </member>
+        <member name="T:ProSimSDK.ProSimConnect.OnDatabaseBuilderActionChangedDelegate">
+            <summary>
+            Delegate for Push changes on the reason of unavailability
+            </summary>
+        </member>
+        <member name="T:ProSimSDK.ProSimConnect.PushNewWeatherDelegate">
+            <summary>
+            Delegate for Push New Weather
+            </summary>
+        </member>
+        <member name="E:ProSimSDK.ProSimConnect.onConnect">
+            <summary>
+            Event raised when a connection is established to ProSim737.
+            </summary>
+            <remarks>The event may be fired from a non GUI thread.</remarks>
+        </member>
+        <member name="E:ProSimSDK.ProSimConnect.onDisconnect">
+            <summary>
+            Event raised when a connection is lost.
+            </summary>
+            <remarks>The event may be fired from a non GUI thread.</remarks>
+        </member>
+        <member name="E:ProSimSDK.ProSimConnect.onFailedToConnect">
+            <summary>
+            Event raised when a connection attempt has failed (only in case of non-synchronous connects).
+            It will continue to try to connect.
+            </summary>
+            <remarks>The event may be fired from a non GUI thread.</remarks>
+        </member>
+        <member name="E:ProSimSDK.ProSimConnect.onDataRefsUpdated">
+            <summary>
+            Event raised after each variable update batch is completed
+            </summary>
+            <remarks>The event may be fired from a non GUI thread.</remarks>
+        </member>
+        <member name="E:ProSimSDK.ProSimConnect.onFailedToConnectStatus">
+            <summary>
+            Event raised after each variable update batch is completed
+            </summary>
+            <remarks>The event may be fired from a non GUI thread.</remarks>
+        </member>
+        <member name="E:ProSimSDK.ProSimConnect.onWeatherReceived">
+            <summary>
+            Event raised after a requested weather has been received
+            </summary>
+            <remarks>The event may be fired from a non GUI thread.</remarks>
+        </member>
+        <member name="E:ProSimSDK.ProSimConnect.onAiTrafficAdded">
+            <summary>
+            Event raised after an AI traffic object has been added
+            </summary>
+            <remarks>The event may be fired from a non GUI thread.</remarks>
+        </member>
+        <member name="E:ProSimSDK.ProSimConnect.onAiTrafficRemoved">
+            <summary>
+            Event raised after an AI traffic object has been removed
+            </summary>
+            <remarks>The event may be fired from a non GUI thread.</remarks>
+        </member>
+        <member name="E:ProSimSDK.ProSimConnect.OnMainDatabaseBuilt">
+            <summary>
+            Event raised after a push for main database was call.
+            </summary>
+            <remarks>The event may be fired from a non GUI thread.</remarks>
+        </member>
+        <member name="E:ProSimSDK.ProSimConnect.OnDatabaseBuilderActionChanged">
+            <summary>
+            Event raised after a changes on the database builder.
+            </summary>
+            <remarks>The event may be fired from a non GUI thread.</remarks>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.#ctor">
+            <summary>Intantiates a new ProSimConnect object.</summary>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.Connect">
+            <summary>
+            Connect to ProSim737 on the local machine.
+            </summary>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.Connect(System.String,System.Boolean)">
+            <summary>Starts a connection to ProSim737 over the network.</summary>
+            <param name="host">The host name or IP address of the machine to connect to.</param>
+            <param name="synchronous">
+            	<para>True to attempt connection immediately.</para>
+            	<para>Defaults to True.</para>
+            </param>
+            <remarks>
+            	<para>By default, or when synchronous is True, the Connect method will try to establish a connection immediatly. When the connection fails, an exception will be
+            thrown.</para>
+            	<para>When synchrousnous is is False, the method will return immediately and connection attempts will start. In this case, the connection will not be ready after
+            the call, and the <see cref="P:ProSimSDK.ProSimConnect.isConnected">isConnected</see> property or <see cref="E:ProSimSDK.ProSimConnect.onConnect">onConnect</see> events should be used to check the status of the connection.</para>
+            </remarks>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.Dispose">
+            <summary>
+            Disconnects and disposes of this connection.
+            </summary>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.Register(ProSimSDK.DataRef)">
+            <summary>
+            Registers a DataRef to this connection.
+            </summary>
+            <param name="dataRef">The DataRef to register.</param>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.unRegister(ProSimSDK.DataRef)">
+            <summary>
+            Unregisters a DataRef from this connection.
+            </summary>
+            <param name="dataRef">The DataRef to unregister.</param>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.ReadDataRef(System.String)">
+            <summary>
+            Read a single DataRef.
+            </summary>
+            <param name="name">The name of the DataRef.</param>
+            <returns>The value of the DataRef.</returns>
+            <exception cref="T:ProSimSDK.NotConnectedException">This ProSimConnect instance is not connected.</exception>
+            <exception cref="T:ProSimSDK.DataRefNotFoundException">The DataRef was not recognized by ProSim737.</exception>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.UpdateDataRefValue(System.Collections.Generic.Dictionary{System.Int32,System.Object})">
+            <exclude/>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.getDataRefDescriptions">
+            <summary>
+            Retrieves a list of all currently supported DataRef.
+            </summary>
+            <returns>A list of all currently supported DataRefs.</returns>
+            <exception cref="T:ProSimSDK.NotConnectedException">The ProSimConnect instance is not connected.</exception>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.getFailures">
+            <summary>Gets a list of supported failures from the connected ProSim737 System.</summary>
+            <returns>
+            	<para>A list of supported failures</para>
+            </returns>
+            <exception cref="T:ProSimSDK.NotConnectedException">The ProSimConnect instance is not connected.</exception>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.setSDKPriorityMode(System.Boolean)">
+            <summary>Sets this clients priority mode</summary>
+            <remarks>When the SDK Priority mode is enabled, the client application can override switches and analog axes.</remarks>
+            <exception cref="T:ProSimSDK.NotConnectedException">The ProSimConnect instance is not connected.</exception>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.getArmedFailures">
+            <summary>
+            Gets a list of all ArmedFailures currently in the system.
+            </summary>
+            <remarks>
+            	<para>The returned list only represents the ArmedFailures that were active at the time of the call. To get an up to date view of Armed Failures, refer
+            to <see cref="E:ProSimSDK.ArmedFailure.onNew">ArmedFailure.onNew</see> and <see cref="E:ProSimSDK.ArmedFailure.onNew">ArmedFailure.onRemove</see>.</para>
+            </remarks>
+            <returns>A list of ArmedFailures.</returns>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.getLicensingInfo">
+            <summary>
+            Get licensing mode and available features.
+            </summary>
+            <returns>Null in case of an error</returns>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.PushArmedFailures(ProSimSDK.ArmedFailureData[])">
+            <exclude/>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.pushAllFailures(ProSimSDK.Failure[])">
+            <exclude/>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.createTCASConflict(System.Int32,System.Int32,System.Int32)">
+            <summary>Create a TCAS conflict aircraft that will create a TCAS conflict somewhere in the future.</summary>
+            <param name="distance">Distance in nautical miles between the current position and the conflict.</param>
+            <param name="verticalSeparation">Distance in feet between the aircraft and the TCAS conflict aircraft. Positive values cause the TCAS conflict aircraft to be above the simulator aircraft.</param>
+            <param name="bearing">Conflict bearing. Use 0 for head on.</param>
+            <remarks>The actual availability of the TCAS conflict option depends on the license type of ProSim737 System.</remarks>
+            <returns>True if creation of TCAS conflict was successful. False if ProSim737 instance does not support TCAS aircraft.</returns>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.createWindshear(System.Boolean,System.Int32)">
+            <summary>Place a windshear in the flightpath that will cause a windshear GPWS warning.</summary>
+            <param name="passingAltitude">The altitude at which the windshear will occur.</param>
+            <param name="earlyDetection">If True, the windshear will be detected at least 2.5NM out. If False, the windshear will be detected 1NM out.</param>
+            <remarks>The actual availability of TCAS conflict option depends on the license type of ProSim737 System.</remarks>
+            <returns>True if creation if creation of the windshear was successful. False if ProSim737 instance does not support windshear creation.</returns>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.windshearArmed">
+            <summary>
+            Return true if a windshear condition is armed.
+            </summary>
+            <returns>True if a windshear condition is armed.</returns>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.clearWindshear">
+            <summary>
+            Clear an armed windshear condition.
+            </summary>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.setUnusualAttitude(System.Single,System.Single)">
+            <summary>Set pitch and roll to a specific value to cause an unusual attitude.</summary>
+            <param name="pitch">The pitch value to set. Positive values are used for pitch up.</param>
+            <param name="roll">The roll value to set. Positive values are right wing down.</param>
+            <returns>True if the attitude was set successfully. False if ProSim737 instance does not support setting unusual attitudes.</returns>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.GetMainDatabaseInfo">
+            <summary>
+            Provide current details on the main database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.PushNewMainDatabase(ProSimSDK.MainDatabaseInfo)">
+            <summary>
+            Push the new details of the main database to the connected services
+            </summary>
+            <param name="mainDatabaseInfo"></param>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.PushActiveSkyIfEnabled(System.Boolean)">
+            <summary>
+            Push Status to client if ActiveSky Status was updated
+            </summary>
+            <param name="isActive"></param>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.DownloadMainDatabase">
+            <summary>
+            Download Main Database File
+            </summary>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.DownloadMainDatabaseXml">
+            <summary>
+            Download Main Database Xml File
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.uplink(System.String)">
+            <summary>
+            send datalink message to air station
+            </summary>
+            <param name="messageData">deserialized message data</param>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.PushDownlink(System.String)">
+            <summary>
+            Push downlink message to client
+            </summary>
+            <param name="messageData">deserialized message data</param>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.SetActiveSkyWeatherMode(ProSimSDK.Weather.WeatherModeType,System.Nullable{System.DateTime})">
+            <summary>
+            ActiveSky Set Weather
+            </summary>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.GetActiveSkyNewUniqueId">
+            <summary>
+            ActiveSky  GetNewUniqueId
+            </summary>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.DoesActiveSkyIdExistAlready(System.String)">
+            <summary>
+            ActiveSky  DoesIdExistAlready
+            </summary>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.IsActiveSkyAnyWeatherEffectSent">
+            <summary>
+            ActiveSky IsAnyWeatherEffectSent
+            </summary>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.AddActiveSkyWeatherEffect(ProSimSDK.Weather.WeatherEffect)">
+            <summary>
+            ActiveSky AddWeatherEffect
+            </summary>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.GetActiveSkyActiveWeatherEffects">
+            <summary>
+            ActiveSky AddWeatherEffect
+            </summary>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.SendActiveSkyWeatherEffect(ProSimSDK.Weather.WeatherEffect)">
+            <summary>
+            ActiveSky SendWeatherEffect
+            </summary>
+        </member>
+        <member name="M:ProSimSDK.ProSimConnect.RemoveActiveSkyWeatherEffect(ProSimSDK.Weather.WeatherEffect)">
+            <summary>
+            ActiveSky RemoveWeatherEffect
+            </summary>
+        </member>
+        <member name="T:ProSimSDK.ReasonOfDbUnavailability">
+            <summary>
+            Reasons of Main Database unavailability
+            </summary>
+        </member>
+        <member name="T:ProSimSDK.RepositionData">
+            <summary>
+            This class contains data for repositioning the aircraft.
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.RepositionData.Latitude">
+            <summary>
+            Aircraft latitude for reposition.
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.RepositionData.Longitude">
+            <summary>
+            Aircraft longitude for reposition.
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.RepositionData.Altitude">
+            <summary>
+            Aircraft altitude for reposition.
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.RepositionData.HeadingMagnetic">
+            <summary>
+            Aircraft magnetic heading for reposition.
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.RepositionData.Pitch">
+            <summary>
+            Aircraft pitch for reposition.
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.RepositionData.Bank">
+            <summary>
+            Aircraft bank for reposition.
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.RepositionData.Ias">
+            <summary>
+            Aircraft indicated airspeed (IAS) for reposition.
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.RepositionData.OnGround">
+            <summary>
+            Defines if aircraft should be on ground after reposition.
+            </summary>
+        </member>
+        <member name="T:ProSimSDK.RepositionLatLonHeadingData">
+            <summary>
+            This class contains data for repositioning the aircraft using latitude, longitude and heading only.
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.RepositionLatLonHeadingData.Latitude">
+            <summary>
+            Aircraft latitude for reposition.
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.RepositionLatLonHeadingData.Longitude">
+            <summary>
+            Aircraft longitude for reposition.
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.RepositionLatLonHeadingData.HeadingTrue">
+            <summary>
+            Aircraft magnetic heading for reposition.
+            </summary>
+        </member>
+        <member name="T:ProSimSDK.StableRepositionData">
+            <summary>
+            This class contains data for repositioning the aircraft using the stable reposition system.
+            </summary>
+        </member>
+        <member name="F:ProSimSDK.StableRepositionData.Fpa">
+            <summary>
+            The requested flight path angle after stabilization
+            </summary>
+        </member>
+        <member name="F:ProSimSDK.StableRepositionData.TrueHeading">
+            <summary>
+            True heading of aircraft after stabilization
+            </summary>
+        </member>
+        <member name="T:ProSimSDK.Weather.ActiveSkyInfo">
+            <summary>
+            ActiveSky configuration settings
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.Weather.ActiveSkyInfo.Host">
+            <summary>
+            Host name or IP Address
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.Weather.ActiveSkyInfo.Port">
+            <summary>
+            Port Number
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.Weather.ActiveSkyInfo.IsActive">
+            <summary>
+            Status of ActiveSky is Enabled
+            </summary>
+        </member>
+        <member name="P:ProSimSDK.Weather.ActiveSkyInfo.AppDataPath">
+            <summary>
+            Path to Active Sky AppData directory
+            </summary>
+        </member>
+    </members>
+</doc>
