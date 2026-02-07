@@ -611,7 +611,7 @@ extern "C" {
     // Advanced DataRef Operations (Phase 5)
     // ============================================================================
 
-    BridgeResult DataRef_GetDateTime(DataRefHandle handle, DateTime* out_value) {
+    BridgeResult DataRef_GetDateTime(DataRefHandle handle, ::DateTime* out_value) {
         if (!handle) {
             SetLastError("Null DataRef handle");
             return BRIDGE_ERR_NULL_HANDLE;
@@ -637,7 +637,7 @@ extern "C" {
         }
     }
 
-    BridgeResult DataRef_SetDateTime(DataRefHandle handle, const DateTime* value) {
+    BridgeResult DataRef_SetDateTime(DataRefHandle handle, const ::DateTime* value) {
         if (!handle) {
             SetLastError("Null DataRef handle");
             return BRIDGE_ERR_NULL_HANDLE;
@@ -663,7 +663,7 @@ extern "C" {
         }
     }
 
-    BridgeResult DataRef_SetReposition(DataRefHandle handle, const RepositionData* data) {
+    BridgeResult DataRef_SetReposition(DataRefHandle handle, const ::RepositionData* data) {
         if (!handle) {
             SetLastError("Null DataRef handle");
             return BRIDGE_ERR_NULL_HANDLE;

@@ -8,9 +8,6 @@
 #include <msclr/gcroot.h>
 #include "ProSimBridge.h"
 
-using namespace System;
-using namespace ProSimSDK;
-
 // Forward declarations
 class DataRefWrapper;
 class ProSimConnectWrapper;
@@ -41,7 +38,7 @@ private:
 public:
     DataRefEventBridge(DataRefWrapper* wrapper) : _nativeWrapper(wrapper) {}
 
-    void OnDataChange(DataRef^ dataRef);
+    void OnDataChange(ProSimSDK::DataRef^ dataRef);
 };
 
 // ============================================================================
@@ -51,7 +48,7 @@ public:
 
 class ProSimConnectWrapper {
 private:
-    msclr::gcroot<ProSimConnect^> _connection;
+    msclr::gcroot<ProSimSDK::ProSimConnect^> _connection;
     msclr::gcroot<ConnectionEventBridge^> _eventBridge;
 
     // Native callback storage
@@ -77,7 +74,7 @@ public:
     void SetOnDisconnect(ConnectionCallback callback, void* userData);
 
     // Access to managed connection (for DataRef creation)
-    ProSimConnect^ GetManagedConnection() { return _connection; }
+    ProSimSDK::ProSimConnect^ GetManagedConnection() { return _connection; }
 
     // Called by the event bridge
     void FireOnConnect();
@@ -91,7 +88,7 @@ public:
 
 class DataRefWrapper {
 private:
-    msclr::gcroot<DataRef^> _dataRef;
+    msclr::gcroot<ProSimSDK::DataRef^> _dataRef;
     msclr::gcroot<DataRefEventBridge^> _eventBridge;
 
     // Native callback storage
