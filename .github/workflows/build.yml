@@ -33,11 +33,12 @@ jobs:
         run: |
           $config = "${{ matrix.config }}"
           $dll = "build/bin/$config/ProSimBridge.dll"
+          $lib = "build/lib/$config/ProSimBridge.lib"
           $test = "build/bin/$config/ProSimBridgeTest.exe"
           $sdk = "build/bin/$config/ProSimSDK.dll"
 
           $missing = @()
-          foreach ($file in @($dll, $test, $sdk)) {
+          foreach ($file in @($dll, $lib, $test, $sdk)) {
             if (Test-Path $file) {
               $size = (Get-Item $file).Length
               Write-Host "OK: $file ($size bytes)"
@@ -59,6 +60,7 @@ jobs:
           name: ProSimBridge-${{ matrix.config }}
           path: |
             build/bin/${{ matrix.config }}/ProSimBridge.dll
+            build/lib/${{ matrix.config }}/ProSimBridge.lib
             build/bin/${{ matrix.config }}/ProSimBridgeTest.exe
             build/bin/${{ matrix.config }}/ProSimSDK.dll
             ProSimBridge.h
