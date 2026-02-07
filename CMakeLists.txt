@@ -1,5 +1,11 @@
 cmake_minimum_required(VERSION 3.15)
-project(ProSimBridge VERSION 1.6.0 LANGUAGES CXX)
+
+# Allow version to be overridden via -DPROSIMBRIDGE_VERSION=x.y.z (e.g. from CI tag)
+if(NOT DEFINED PROSIMBRIDGE_VERSION)
+    set(PROSIMBRIDGE_VERSION "0.0.0")
+endif()
+
+project(ProSimBridge VERSION ${PROSIMBRIDGE_VERSION} LANGUAGES CXX)
 
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 17)

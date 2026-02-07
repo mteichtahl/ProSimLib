@@ -1,0 +1,88 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-2022
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Extract version from tag
+        id: version
+        shell: bash
+        run: |
+          TAG="${GITHUB_REF_NAME}"          # strip leading 'v'
+          VERSION="${TAG#v}"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "Building version $VERSION from tag $TAG"
+
+      - name: Configure CMake
+        run: >
+          cmake -B build
+          -G "Visual Studio 17 2022"
+          -A x64
+          -DCMAKE_BUILD_TYPE=Release
+          -DBUILD_TESTS=ON
+          -DPROSIMBRIDGE_VERSION=${{ steps.version.outputs.version }}
+
+      - name: Build
+        run: cmake --build build --config Release --parallel
+
+      - name: Verify build artifacts
+        shell: pwsh
+        run: |
+          $dll = "build/bin/Release/ProSimBridge.dll"
+          $lib = "build/lib/Release/ProSimBridge.lib"
+          $test = "build/bin/Release/ProSimBridgeTest.exe"
+          $sdk = "build/bin/Release/ProSimSDK.dll"
+
+          $missing = @()
+          foreach ($file in @($dll, $lib, $test, $sdk)) {
+            if (Test-Path $file) {
+              $size = (Get-Item $file).Length
+              Write-Host "OK: $file ($size bytes)"
+            } else {
+              Write-Host "MISSING: $file"
+              $missing += $file
+            }
+          }
+
+          if ($missing.Count -gt 0) {
+            Write-Error "Missing artifacts: $($missing -join ', ')"
+            exit 1
+          }
+
+      - name: Package release
+        shell: pwsh
+        run: |
+          $version = "${{ steps.version.outputs.version }}"
+          $staging = "ProSimBridge-$version"
+          New-Item -ItemType Directory -Path $staging/bin, $staging/lib, $staging/include -Force
+
+          Copy-Item build/bin/Release/ProSimBridge.dll  $staging/bin/
+          Copy-Item build/bin/Release/ProSimSDK.dll     $staging/bin/
+          Copy-Item build/lib/Release/ProSimBridge.lib  $staging/lib/
+          Copy-Item ProSimBridge.h                      $staging/include/
+          Copy-Item README.md                           $staging/
+          Copy-Item CHANGELOG.md                        $staging/
+
+          Compress-Archive -Path $staging -DestinationPath "ProSimBridge-$version.zip"
+          Write-Host "Created ProSimBridge-$version.zip"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: ProSimBridge ${{ steps.version.outputs.version }}
+          generate_release_notes: true
+          files: ProSimBridge-${{ steps.version.outputs.version }}.zip

@@ -14,5 +14,5 @@ using namespace System::Security::Permissions;
 [assembly:AssemblyCopyrightAttribute(L"Copyright (c) 2026")];
 [assembly:AssemblyTrademarkAttribute(L"")];
 [assembly:AssemblyCultureAttribute(L"")];
-[assembly:AssemblyVersionAttribute(L"1.0.*")];
+[assembly:AssemblyVersionAttribute(L"1.0.0.0")];
 [assembly:ComVisible(false)];
