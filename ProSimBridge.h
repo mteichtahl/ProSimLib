@@ -1,3 +1,5 @@
+#pragma once
+
 // Export for native C++
 #ifdef PROSIMBRIDGE_EXPORTS
 #define BRIDGE_API __declspec(dllexport)
@@ -99,6 +101,13 @@ extern "C" {
     } RepositionData;
 
     // ============================================================================
+    // Opaque Handle Types
+    // ============================================================================
+
+    // Opaque handle type for DataRef instances
+    typedef void* DataRefHandle;
+
+    // ============================================================================
     // Callback Function Pointer Types
     // ============================================================================
 
@@ -114,9 +123,6 @@ extern "C" {
     // ============================================================================
     // DataRef Lifecycle Management
     // ============================================================================
-
-    // Opaque handle type for DataRef instances
-    typedef void* DataRefHandle;
 
     // Creates a new DataRef instance
     // name: null-terminated string for the DataRef name

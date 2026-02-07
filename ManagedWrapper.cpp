@@ -89,10 +89,10 @@ ProSimConnectWrapper::~ProSimConnectWrapper() {
                 conn->onDisconnect -= gcnew ProSimConnect::connectionChangedDelegate(bridge, &ConnectionEventBridge::OnDisconnect);
             }
 
-            // Dispose the connection
+            // Dispose the connection (delete invokes IDisposable::Dispose in C++/CLI)
             if (conn != nullptr) {
                 try {
-                    conn->Dispose();
+                    delete conn;
                 }
                 catch (...) {
                     // Ignore disposal errors
@@ -207,10 +207,10 @@ DataRefWrapper::~DataRefWrapper() {
                 dr->onDataChange -= gcnew DataRef::onDataChangeDelegate(bridge, &DataRefEventBridge::OnDataChange);
             }
 
-            // Dispose the DataRef
+            // Dispose the DataRef (delete invokes IDisposable::Dispose in C++/CLI)
             if (dr != nullptr) {
                 try {
-                    dr->Dispose();
+                    delete dr;
                 }
                 catch (...) {
                     // Ignore disposal errors
@@ -396,7 +396,7 @@ BridgeResult DataRefWrapper::SetString(const char* value) {
     }
 }
 
-BridgeResult DataRefWrapper::GetDateTime(DateTime* outValue) {
+BridgeResult DataRefWrapper::GetDateTime(::DateTime* outValue) {
     if (!outValue) return BRIDGE_ERR_INVALID_ARGUMENT;
 
     try {
@@ -421,7 +421,7 @@ BridgeResult DataRefWrapper::GetDateTime(DateTime* outValue) {
     }
 }
 
-BridgeResult DataRefWrapper::SetDateTime(const DateTime* value) {
+BridgeResult DataRefWrapper::SetDateTime(const ::DateTime* value) {
     if (!value) return BRIDGE_ERR_INVALID_ARGUMENT;
 
     try {
@@ -447,7 +447,7 @@ BridgeResult DataRefWrapper::SetDateTime(const DateTime* value) {
     }
 }
 
-BridgeResult DataRefWrapper::SetReposition(const RepositionData* data) {
+BridgeResult DataRefWrapper::SetReposition(const ::RepositionData* data) {
     if (!data) return BRIDGE_ERR_INVALID_ARGUMENT;
 
     try {
