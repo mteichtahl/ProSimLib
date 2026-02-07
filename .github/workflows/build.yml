@@ -1,0 +1,64 @@
+name: Build and Test
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: windows-2022
+    strategy:
+      matrix:
+        config: [Debug, Release]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure CMake
+        run: >
+          cmake -B build
+          -G "Visual Studio 17 2022"
+          -A x64
+          -DCMAKE_BUILD_TYPE=${{ matrix.config }}
+          -DBUILD_TESTS=ON
+
+      - name: Build
+        run: cmake --build build --config ${{ matrix.config }} --parallel
+
+      - name: Verify build artifacts
+        shell: pwsh
+        run: |
+          $config = "${{ matrix.config }}"
+          $dll = "build/bin/$config/ProSimBridge.dll"
+          $test = "build/bin/$config/ProSimBridgeTest.exe"
+          $sdk = "build/bin/$config/ProSimSDK.dll"
+
+          $missing = @()
+          foreach ($file in @($dll, $test, $sdk)) {
+            if (Test-Path $file) {
+              $size = (Get-Item $file).Length
+              Write-Host "OK: $file ($size bytes)"
+            } else {
+              Write-Host "MISSING: $file"
+              $missing += $file
+            }
+          }
+
+          if ($missing.Count -gt 0) {
+            Write-Error "Missing artifacts: $($missing -join ', ')"
+            exit 1
+          }
+
+      - name: Upload artifacts
+        if: matrix.config == 'Release'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ProSimBridge-${{ matrix.config }}
+          path: |
+            build/bin/${{ matrix.config }}/ProSimBridge.dll
+            build/bin/${{ matrix.config }}/ProSimBridgeTest.exe
+            build/bin/${{ matrix.config }}/ProSimSDK.dll
+            ProSimBridge.h
